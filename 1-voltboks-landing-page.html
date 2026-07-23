@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoltBoks - Hybrid Energy Storage System | Plug & Play</title>
+    <meta name="description" content="VoltBoks: Revolutionary plug & play hybrid inverter battery system. 20kWh LiFePO4. Store solar energy, reduce costs, energy independence. Germany stock. Fast delivery.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #9ECA00;
+            --dark: #1a1a1a;
+            --light: #f5f5f5;
+            --accent: #667eea;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* HEADER */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(158, 202, 0, 0.1);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--dark);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 15px;
+                font-size: 0.9em;
+            }
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: heroSlideIn 1s ease-out;
+        }
+
+        @keyframes heroSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            animation: fadeInDown 1s ease-out 0.2s both;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            color: #ddd;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, #85b800 100%);
+            color: #1a1a1a;
+            padding: 18px 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(158, 202, 0, 0.3);
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(158, 202, 0, 0.5);
+        }
+
+        .cta-button:active {
+            transform: translateY(-1px);
+        }
+
+        /* BATTERY ANIMATION */
+        .battery-container {
+            position: relative;
+            height: 300px;
+            margin: 50px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .battery {
+            width: 150px;
+            height: 250px;
+            border: 3px solid var(--primary);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            background: rgba(158, 202, 0, 0.1);
+        }
+
+        .battery::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 15px;
+            background: var(--primary);
+            border-radius: 5px;
+        }
+
+        .battery-fill {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, var(--primary), #85b800);
+            animation: chargeBattery 3s ease-in-out infinite;
+            width: 100%;
+        }
+
+        @keyframes chargeBattery {
+            0% {
+                height: 20%;
+            }
+            50% {
+                height: 100%;
+            }
+            100% {
+                height: 20%;
+            }
+        }
+
+        .battery-percentage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+            z-index: 10;
+            animation: fadeInOut 3s ease-in-out infinite;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* FEATURES SECTION */
+        .features {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--light);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 60px;
+            color: var(--dark);
+        }
+
+        .section-title span {
+            color: var(--primary);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid var(--primary);
+            transition: all 0.3s;
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(158, 202, 0, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* SPECS SECTION */
+        .specs {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+        }
+
+        .specs-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .specs-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .spec-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .spec-check {
+            color: var(--primary);
+            font-size: 1.5em;
+            min-width: 30px;
+        }
+
+        .spec-text h4 {
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .spec-text p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .specs-image {
+            background: linear-gradient(135deg, rgba(158, 202, 0, 0.1), rgba(102, 126, 234, 0.1));
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            font-size: 5em;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* ENERGY CALCULATOR */
+        .calculator {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+        }
+
+        .calculator-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            border-radius: 20px;
+            border: 1px solid rgba(158, 202, 0, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .calculator h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2em;
+        }
+
+        .calculator h2 span {
+            color: var(--primary);
+        }
+
+        .input-group {
+            margin-bottom: 30px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #ddd;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid rgba(158, 202, 0, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .input-group input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .calc-button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--primary) 0%, #85b800 100%);
+            color: #1a1a1a;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .calc-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(158, 202, 0, 0.4);
+        }
+
+        .results {
+            margin-top: 40px;
+            padding: 30px;
+            background: rgba(158, 202, 0, 0.1);
+            border-radius: 15px;
+            border-left: 5px solid var(--primary);
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .results.show {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .result-item {
+            margin: 15px 0;
+            font-size: 1.1em;
+        }
+
+        .result-label {
+            color: #ddd;
+        }
+
+        .result-value {
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        /* PRICING SECTION */
+        .pricing {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--light);
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .price-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .price-card.featured {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .price-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(158, 202, 0, 0.2);
+        }
+
+        .price-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .price-tag {
+            font-size: 2.5em;
+            color: var(--primary);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .price-subtext {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .price-features {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .price-features li {
+            list-style: none;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            color: #666;
+        }
+
+        .price-features li::before {
+            content: '✓ ';
+            color: var(--primary);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, #85b800 100%);
+            color: #1a1a1a;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2em;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1em;
+            }
+
+            .cta-button {
+                padding: 15px 40px;
+                font-size: 1em;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+
+            .specs-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .calculator-container {
+                padding: 30px 20px;
+            }
+
+            .price-card.featured {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <div class="logo">Volt<span>BOKS</span></div>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#specs">Specs</a></li>
+                <li><a href="#calculator">Calculator</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Energy <span>Independence</span> Starts Here</h1>
+            <p class="hero-subtitle">20kWh LiFePO4 Hybrid Battery System. Plug & Play. 6000-Cycle Lifespan. Germany Stock.</p>
+            <button class="cta-button" onclick="document.getElementById('pricing').scrollIntoView()">Order Now</button>
+        </div>
+        <div class="battery-container">
+            <div class="battery">
+                <div class="battery-fill"></div>
+                <div class="battery-percentage">85%</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features" id="features">
+        <h2 class="section-title">Why Choose <span>VoltBoks</span></h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Plug & Play</h3>
+                <p>Zero installation complexity. Setup in under 5 minutes. No electrician needed.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💾</div>
+                <h3>Bidirectional</h3>
+                <p>Charge from solar, grid, or both. Discharge to home or sell back to grid.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🇪🇺</div>
+                <h3>EU Certified</h3>
+                <p>Voldoet aan EU-normen. CE certified. German engineered quality.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Smart Control</h3>
+                <p>Monitor & control via app. CAN/RS485 communication. Real-time analytics.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔋</div>
+                <h3>LiFePO4 Battery</h3>
+                <p>6000+ cycle lifespan. 90% DoD. IP65 protection. Safest battery chemistry.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>ROI in 5-7 Years</h3>
+                <p>Reduce energy bills by 60-80%. Government incentives available.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPECS SECTION -->
+    <section class="specs" id="specs">
+        <h2 class="section-title">Technical <span>Specifications</span></h2>
+        <div class="specs-container">
+            <div class="specs-list">
+                <div class="spec-item">
+                    <div class="spec-check">✓</div>
+                    <div class="spec-text">
+                        <h4>Battery Capacity</h4>
+                        <p>20 kWh LiFePO4 (expandable to 40kWh)</p>
+                    </div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-check">✓</div>
+                    <div class="spec-text">
+                        <h4>Power Output</h4>
+                        <p>5-10kW Bidirectional Inverter</p>
+                    </div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-check">✓</div>
+                    <div class="spec-text">
+                        <h4>Battery Chemistry</h4>
+                        <p>Lithium Ion LiFePO4 (Safest type)</p>
+                    </div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-check">✓</div>
+                    <div class="spec-text">
+                        <h4>Cycle Lifespan</h4>
+                        <p>6000 cycles (15-20 years)</p>
+                    </div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-check">✓</div>
+                    <div class="spec-text">
+                        <h4>Depth of Discharge</h4>
+                        <p>90% DoD - Maximizes usable capacity</p>
+                    </div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-check">✓</div>
+                    <div class="spec-text">
+                        <h4>IP Rating & Installation</h4>
+                        <p>IP65 Protection. Wall-mounted. Indoor/Outdoor capable</p>
+                    </div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-check">✓</div>
+                    <div class="spec-text">
+                        <h4>Communication</h4>
+                        <p>CAN/RS485/WiFi - App control & monitoring</p>
+                    </div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-check">✓</div>
+                    <div class="spec-text">
+                        <h4>System Type</h4>
+                        <p>Stackable - 1600W AC Coupling</p>
+                    </div>
+                </div>
+            </div>
+            <div class="specs-image">
+                🔋
+            </div>
+        </div>
+    </section>
+
+    <!-- ENERGY CALCULATOR -->
+    <section class="calculator" id="calculator">
+        <div class="calculator-container">
+            <h2>Calculate Your <span>Savings</span></h2>
+            <div class="input-group">
+                <label for="dailyUsage">Daily Energy Usage (kWh)</label>
+                <input type="number" id="dailyUsage" placeholder="e.g., 25" min="1" max="500">
+            </div>
+            <div class="input-group">
+                <label for="electricityRate">Electricity Rate (€/kWh)</label>
+                <input type="number" id="electricityRate" placeholder="e.g., 0.35" min="0.01" max="2" step="0.01" value="0.35">
+            </div>
+            <div class="input-group">
+                <label for="solarProduction">Solar Production Capacity (kW)</label>
+                <input type="number" id="solarProduction" placeholder="e.g., 10" min="1" max="100">
+            </div>
+            <button class="calc-button" onclick="calculateSavings()">Calculate My Savings</button>
+            
+            <div class="results" id="results">
+                <div class="result-item">
+                    <span class="result-label">Annual Savings:</span>
+                    <div class="result-value" id="annualSavings">€0</div>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">5-Year Total Savings:</span>
+                    <div class="result-value" id="fiveYearSavings">€0</div>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">10-Year Total Savings:</span>
+                    <div class="result-value" id="tenYearSavings">€0</div>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">CO₂ Reduced (Annual):</span>
+                    <div class="result-value" id="co2Reduced">0 tons</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section class="pricing" id="pricing">
+        <h2 class="section-title">Simple <span>Pricing</span></h2>
+        <div class="pricing-cards">
+            <div class="price-card">
+                <h3>Starter</h3>
+                <div class="price-tag">€8,500</div>
+                <div class="price-subtext">10kWh System</div>
+                <ul class="price-features">
+                    <li>5kW Inverter</li>
+                    <li>10kWh Battery</li>
+                    <li>5-Year Warranty</li>
+                    <li>App Control</li>
+                    <li>Basic Support</li>
+                </ul>
+                <button class="cta-button">Choose Plan</button>
+            </div>
+            <div class="price-card featured">
+                <h3>Professional</h3>
+                <div class="price-tag">€15,000</div>
+                <div class="price-subtext">20kWh System (Most Popular)</div>
+                <ul class="price-features">
+                    <li>10kW Inverter</li>
+                    <li>20kWh Battery</li>
+                    <li>10-Year Warranty</li>
+                    <li>Advanced Analytics</li>
+                    <li>24/7 Priority Support</li>
+                    <li>Free Installation</li>
+                </ul>
+                <button class="cta-button">Choose Plan</button>
+            </div>
+            <div class="price-card">
+                <h3>Enterprise</h3>
+                <div class="price-tag">€25,000+</div>
+                <div class="price-subtext">40kWh+ System</div>
+                <ul class="price-features">
+                    <li>Up to 50kW Inverter</li>
+                    <li>40kWh+ Battery (Expandable)</li>
+                    <li>10-Year Warranty</li>
+                    <li>Custom Configuration</li>
+                    <li>Dedicated Account Manager</li>
+                    <li>Professional Installation</li>
+                </ul>
+                <button class="cta-button">Contact Sales</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <h2>Ready to Go Solar?</h2>
+        <p>Join thousands of Europeans achieving energy independence</p>
+        <button class="cta-button" style="color: white; background: rgba(255,255,255,0.2); border: 2px solid white;">Schedule Free Consultation</button>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2024 VoltBoks B.V. | Netherlands | Belgium | Luxembourg</p>
+        <p>Germany Stock | Alibaba Verified Supplier | CE Certified</p>
+        <p>
+            <a href="#privacy">Privacy Policy</a> | 
+            <a href="#terms">Terms of Service</a> | 
+            <a href="#contact">Contact: info@voltboks.nl</a>
+        </p>
+    </footer>
+
+    <script>
+        function calculateSavings() {
+            const dailyUsage = parseFloat(document.getElementById('dailyUsage').value) || 0;
+            const electricityRate = parseFloat(document.getElementById('electricityRate').value) || 0;
+            const solarProduction = parseFloat(document.getElementById('solarProduction').value) || 0;
+
+            if (dailyUsage === 0 || electricityRate === 0 || solarProduction === 0) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            const coverageRatio = 0.70;
+            const yearlySavings = dailyUsage * 365 * electricityRate * coverageRatio;
+            const fiveYearSavings = yearlySavings * 5;
+            const tenYearSavings = yearlySavings * 10;
+            const co2Reduced = (dailyUsage * 365 * 0.4) / 1000;
+
+            document.getElementById('annualSavings').textContent = '€' + yearlySavings.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('fiveYearSavings').textContent = '€' + fiveYearSavings.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('tenYearSavings').textContent = '€' + tenYearSavings.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('co2Reduced').textContent = co2Reduced.toFixed(1) + ' tons';
+
+            document.getElementById('results').classList.add('show');
+        }
+
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function() {
+                if (this.textContent.includes('Schedule') || this.textContent.includes('Contact')) {
+                    alert('🎉 Thank you for your interest in VoltBoks!\n\nContact us at info@voltboks.nl to schedule your consultation.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
